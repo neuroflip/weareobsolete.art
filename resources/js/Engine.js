@@ -11,7 +11,7 @@ requirejs(["Triangle", "Point2D", "Point3D", "Cube", "Util"], function(Triangle,
 	        this.canvasCtx = this.canvas.getContext('2d');
 	        this.canvas.width = canvasWidth;
 	        this.canvas.height = canvasHeight;
-	        this.canvasCtx.lineWidth = 0.1;
+	        this.canvasCtx.lineWidth = 0.3;
 		
 			initScene.call(this);
 	};
@@ -28,7 +28,7 @@ requirejs(["Triangle", "Point2D", "Point3D", "Cube", "Util"], function(Triangle,
 	        clearCtx.call(this);
 
 	        zrotate.call(this, -2 * 3.14 / 180);
-	        //yrotate.call(this, 1 * 3.14 / 180);
+	        yrotate.call(this, 1 * 3.14 / 180);
 	        xrotate.call(this, 2 * 3.14 / 180);
 
 			for(var i=0;i<this.objects.length;i++) {
@@ -61,8 +61,7 @@ requirejs(["Triangle", "Point2D", "Point3D", "Cube", "Util"], function(Triangle,
 	    	color3 = "#BBB";
 
 		for(var i=0; i<object.length; i++) {
-			for(var j=0; j<3; j++) {
-	    		drawLine.call(this, 
+				drawLine.call(this, 
 	    			calculate2DProjectionPoint.call(this, object[i].p1).x,
 	    			calculate2DProjectionPoint.call(this, object[i].p1).y,
 	    			calculate2DProjectionPoint.call(this, object[i].p2).x,
@@ -82,7 +81,6 @@ requirejs(["Triangle", "Point2D", "Point3D", "Cube", "Util"], function(Triangle,
 	    			calculate2DProjectionPoint.call(this, object[i].p1).x,
 	    			calculate2DProjectionPoint.call(this, object[i].p1).y,
 	    			color3);
-			}
 		}
 	}
 
